@@ -2,17 +2,19 @@
 #include <random>
 #include <string>
 #include <limits>
+#include <fstream>
 
-void MenuLoop(int test);
+int MenuLoop(int test);
 
 int main () {
     int test;
 
-    MenuLoop(test);
+    std::cout << MenuLoop(test);
 
+return 0;
 }
 
-void MenuLoop(int test) {
+int MenuLoop(int test) {
     
     std::string Menu = 
     "Menu: \n"
@@ -22,6 +24,7 @@ void MenuLoop(int test) {
     "[3] EXIT\n";
 
     std::cout << Menu;
+
     do
     {
         if(!(std::cin >> test) || test < 0 || test > 3)
@@ -36,4 +39,5 @@ void MenuLoop(int test) {
     }
     while (true);
 
+    return test;
 }
