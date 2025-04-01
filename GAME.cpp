@@ -9,9 +9,25 @@ int MenuLoop(int &test);
 int main () {
     int test = 0;
 
-    std::cout << MenuLoop(test);
+    MenuLoop(test);
 
-    std::cout << std::endl << test << "\n";
+    switch (test) 
+    {
+        case 0:
+        std::cout << "WE ARE PLAYING!";
+        break;
+
+        case 1:
+        std::cout << "> FILE 1\n" << " FILE 2\n";
+        break;
+        
+        case 2:
+        std::cout << "\t\tCREDITS\n" << "\n0xLIVEPORK - PROGRAMMER\n";
+        break;
+        
+        default:
+        break;
+    }
 
 return 0;
 }
