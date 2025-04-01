@@ -4,17 +4,19 @@
 #include <limits>
 #include <fstream>
 
-int MenuLoop(int test);
+int MenuLoop(int &test);
 
 int main () {
-    int test;
+    int test = 0;
 
     std::cout << MenuLoop(test);
+
+    std::cout << std::endl << test << "\n";
 
 return 0;
 }
 
-int MenuLoop(int test) {
+int MenuLoop(int &test) {
     
     std::string Menu = 
     "Menu: \n"
