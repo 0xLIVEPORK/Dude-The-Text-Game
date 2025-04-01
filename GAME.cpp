@@ -2,7 +2,7 @@
 #include <random>
 #include <string>
 #include <limits>
-#include <fstream>
+#include <fstream> //still useless but will be used for savefiles function
 
 int MenuLoop(int &test);
 
@@ -11,6 +11,8 @@ int main () {
 
     MenuLoop(test);
 
+    //TEST IS PLACE HOLDER
+    //EACH WILL REPLACED WITH THEIR OWN FUNCTION CALL
     switch (test) 
     {
         case 0:
