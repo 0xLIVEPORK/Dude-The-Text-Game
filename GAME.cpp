@@ -2,7 +2,7 @@
 #include <random>
 #include <string>
 #include <limits>
-#include <fstream> //still useless but will be used for savefiles function
+#include <fstream>
 
 int MenuLoop(int &test);
 
@@ -11,8 +11,6 @@ int main () {
 
     MenuLoop(test);
 
-    //TEST IS PLACE HOLDER
-    //EACH WILL REPLACED WITH THEIR OWN FUNCTION CALL
     switch (test) 
     {
         case 0:
@@ -26,6 +24,10 @@ int main () {
         case 2:
         std::cout << "\t\tCREDITS\n" << "\n0xLIVEPORK - PROGRAMMER\n";
         break;
+        
+        case 3:
+        std::cout << "THANKS FOR PLAYING!";
+        break; 
         
         default:
         break;
