@@ -3,6 +3,11 @@
 #include <string>
 #include <limits>
 
+struct character{
+    std::string name;
+    unsigned_t
+}
+
 int MenuLoop(int &test);
 
 int main () {
