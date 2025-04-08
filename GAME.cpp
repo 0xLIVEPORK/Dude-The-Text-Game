@@ -3,10 +3,24 @@
 #include <string>
 #include <limits>
 
+
 struct character{
     std::string name;
-    unsigned_t
+    unsigned short level;
+    unsigned short health;
+    unsigned short strength;
+    std::string weapon;
+
+    void attack(std::string& name, unsigned short& level,  unsigned short& health, unsigned short& strength, std::string& weapon) {
+        std::cout << name << " attacks with" << weapon << " for" << strength * 2 << " damage!\n";
+    }
+};
+
+void display(std::string& name, unsigned short& level,  unsigned short& health, unsigned short& strength, std::string& weapon) {
+    
 }
+
+
 
 int MenuLoop(int &test);
 
