@@ -4,23 +4,32 @@
 #include <limits>
 
 
+int MenuLoop(int &test);
+
 struct character{
-    std::string name;
-    unsigned short level;
-    unsigned short health;
-    unsigned short strength;
-    std::string weapon;
+    std::string name = "Kei";
+    unsigned short level = 2;
+    unsigned short health = 5;
+    unsigned short strength = rand(); 
+    std::string weapon = "Bread";
 
     void attack(std::string& name, unsigned short& level,  unsigned short& health, unsigned short& strength, std::string& weapon) {
-        std::cout << name << " attacks with" << weapon << " for" << strength * 2 << " damage!\n";
+        std::cout << name << " attacks with " << weapon << " for " << strength * 2 << " damage!\n";
     }
 };
 
 void display(std::string& name, unsigned short& level,  unsigned short& health, unsigned short& strength, std::string& weapon) {
-    
+    std::cout 
+    << "Character: " << name << "\n"
+    << "Level: " << level << "\n"
+    << "Health: " << health << "\n"
+    << "Strength " << strength << "\n"
+    << "Weapon: " << weapon << "\n";
 }
 
 int main() {
+    srand(time(0));
+
     character Kei;
 
     display(Kei.name, Kei.level, Kei.health, Kei.strength, Kei.weapon);
@@ -29,7 +38,6 @@ int main() {
     
     return 0;
 }
-
 
 
 int MenuLoop(int &test);
