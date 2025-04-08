@@ -20,6 +20,16 @@ void display(std::string& name, unsigned short& level,  unsigned short& health, 
     
 }
 
+int main() {
+    character Kei;
+
+    display(Kei.name, Kei.level, Kei.health, Kei.strength, Kei.weapon);
+
+    Kei.attack(Kei.name, Kei.level, Kei.health, Kei.strength, Kei.weapon);
+    
+    return 0;
+}
+
 
 
 int MenuLoop(int &test);
