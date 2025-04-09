@@ -81,21 +81,4 @@ int MenuLoop(int &test) {
     "[2] CREDITS\n"
     "[3] EXIT\n";
 
-    std::cout << Menu;
 
-    do
-    {
-        if(!(std::cin >> test) || test < 0 || test > 3)
-        {
-            std::cout << Menu;
-            std::cout << "Invalid Input\nTry Again: ";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
-    break;
-    }
-    while (true);
-
-    return test;
-}
