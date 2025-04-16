@@ -5,16 +5,20 @@
 #include <fstream>
 
 class Character{
+    private:
     Character(unsigned short x, short y, std::string z) {
         unsigned short health = x;
         short stamina = y;
         std::string weapon = z;
     }
 
-    void inventory(std::string test[10][10])
+    void in_inventory(std::string test[])
     {
-        
+        if(std::string test[] - 0)
     }
+
+    public:
+    //Empty That Shit
 };
 
 
