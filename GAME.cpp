@@ -11,7 +11,10 @@ class Character{
         std::string weapon = z;
     }
 
-    void Inventory();
+    void inventory(std::string test[10][10])
+    {
+        
+    }
 };
 
 
