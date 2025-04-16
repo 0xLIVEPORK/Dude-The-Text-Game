@@ -5,36 +5,34 @@
 #include <fstream>
 
 class Character{
-    Character(unsigned short x) {
+    Character(unsigned short x, short y, std::string z) {
         unsigned short health = x;
-        
+        short stamina = y;
+        std::string weapon = z;
     }
+
+    void Inventory();
 };
 
-int MenuLoop(int &test);
 
-struct character{
-    std::string name;
-    unsigned short level;
-    unsigned short health;
-    unsigned short strength;
-    std::string weapon;
 
-    void attack(std::string& name, unsigned short& level,  unsigned short& health, unsigned short& strength, std::string& weapon) {
-        std::cout << name << " attacks with" << weapon << " for" << strength * 2 << " damage!\n";
+
+#include <iostream>
+#include <random>
+#include <string>
+#include <limits>
+#include <fstream>
+
+class Character{
+    Character(unsigned short x, short y, std::string z) {
+        unsigned short health = x;
+        short stamina = y;
+        std::string weapon = z;
     }
+
+    void Inventory();
 };
 
-void display(std::string& name, unsigned short& level,  unsigned short& health, unsigned short& strength, std::string& weapon) {
-    
-}
 
 
 
-int main () {
-    i
-
-return 0;
-}
-
-int Menu()
