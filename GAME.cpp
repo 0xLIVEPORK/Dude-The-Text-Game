@@ -12,15 +12,15 @@ class Character{
         std::string weapon = z;
     }
 
-    void in_inventory(std::string test[])
-    {
-        if(std::string test[] - 0)
-    }
+    void in_inventory(std::string test[]);
 
     public:
+
+    void
     //Empty That Shit
 };
 
 
 
 
+s
