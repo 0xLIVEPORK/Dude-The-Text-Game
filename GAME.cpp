@@ -7,7 +7,7 @@
 class Character{
     private:
     Character(unsigned short x, short y, std::string z) {
-        unsigned short health = x;
+        unsigned short health = x;ghghghg
         short stamina = y;
         std::string weapon = z;
     }
