@@ -9,14 +9,22 @@ class Character{
    
 
     public:
-    Character(unsigned short x, short y, std::string z) 
+    Character(std::string w, unsigned short x, short y, std::string z) 
     {
+        std::string name = w;
         unsigned short health = x;
         short stamina = y;
         std::string weapon = z;
     }
 };
 
+int main() {
+
+    
+
+
+    return EXIT_SUCCESS;
+}
 
 
 
