@@ -18,7 +18,7 @@ class Character{
     }
 };
 
-int main() {s
+int main() {
 
     
 
