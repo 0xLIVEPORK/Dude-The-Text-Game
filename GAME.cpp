@@ -1,40 +1,35 @@
 #include <iostream>
-#include <random>
 #include <string>
-#include <limits>
-#include <fstream>
 
-class Character{
-    private:
-   
+class Character {
+protected:
+    std::string name;
+    unsigned short health;
+    short stamina;
+    std::string weapon;
 
-    public:
+public:
     Character(std::string w, unsigned short x, short y, std::string z) 
+        : name(w), health(x), stamina(y), weapon(z) 
     {
-        std::string name = w;
-        unsigned short health = x;
-        short stamina = y;
-        std::string weapon = z;
+        // constructor
     }
 };
 
-class DeadCheese: Character{
-    public:
+class DeadCheese : public Character {
+public:
+    DeadCheese(std::string w, unsigned short x, short y, std::string z)
+        : Character(w, x, y, z) 
+    {}
 
-    void cheese()
-    {
+    void cheese() {
         std::cout << "Enter: ";
     }
 };
 
 int main() {
-
-    DeadCheese Character("test", 10, 10, "word");
-
-
+    DeadCheese deadCheese("test", 10, 10, "word");
+    deadCheese.cheese();
 
     return EXIT_SUCCESS;
 }
-
-
-
