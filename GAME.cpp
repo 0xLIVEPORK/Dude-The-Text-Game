@@ -18,9 +18,19 @@ class Character{
     }
 };
 
+class DeadCheese: Character{
+    public:
+
+    void cheese()
+    {
+        std::cout << "Enter: ";
+    }
+};
+
 int main() {
 
-    
+    DeadCheese Character("test", 10, 10, "word");
+
 
 
     return EXIT_SUCCESS;
