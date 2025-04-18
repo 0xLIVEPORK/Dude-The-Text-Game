@@ -6,14 +6,15 @@
 
 class Character{
     private:
-    Character(unsigned short x, short y, std::string z) {
+   
+
+    public:
+    Character(unsigned short x, short y, std::string z) 
+    {
         unsigned short health = x;
         short stamina = y;
         std::string weapon = z;
     }
-
-    public:
-    //Empty That Shit
 };
 
 
