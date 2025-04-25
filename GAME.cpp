@@ -1,35 +1,30 @@
 #include <iostream>
-#include <string>
+#include <cstdlib>
 
-class Character {
-protected:
-    std::string name;
-    unsigned short health;
-    short stamina;
-    std::string weapon;
+class Weapon{
+  private:
 
-public:
-    Character(std::string w, unsigned short x, short y, std::string z) 
-        : name(w), health(x), stamina(y), weapon(z) 
-    {
-        // constructor
-    }
-};
+  std::string name;
+  int damage;
 
-class DeadCheese : public Character {
-public:
-    DeadCheese(std::string w, unsigned short x, short y, std::string z)
-        : Character(w, x, y, z) 
-    {}
 
-    void cheese() {
-        std::cout << "Enter: ";
-    }
+  public:
+
+  Weapon(std::string n, int d) : name(n), damage(d) {}
+
+  void describeWeapon()
+  {
+    std::cout << "Weapon Name: <" << name << ">, Damage: <" << damage << "> \n";
+  }
 };
 
 int main() {
-    DeadCheese deadCheese("test", 10, 10, "word");
-    deadCheese.cheese();
 
-    return EXIT_SUCCESS;
+  Weapon Morning_Star("Morning Star", 5);
+  Morning_Star.describeWeapon();
+
+  Weapon Halberd("Halberd", 20);
+  Halberd.describeWeapon();
+
+  return EXIT_SUCCESS;
 }
