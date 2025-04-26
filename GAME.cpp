@@ -2,6 +2,14 @@
 #include <cstdlib>
 #include <limits>
 
+
+class Inventory{
+  protected:
+
+  std::string inventory[10];
+}
+
+
 class Weapon{
   private:
 
@@ -30,7 +38,7 @@ class Weapon{
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         continue;
       }
-    name.clear();
+
     name = new_name;
     break;
     }
@@ -41,15 +49,9 @@ class Weapon{
   int dmg_factor;
     while (true)
     {
-    std::cout << "\nEnter a New Name for your " << name << ": ";
-      if(!(getline(std::cin, new_name)))
-      {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        continue;
-      }
-    name.clear();
-    name = new_name;
+    std::cout << "Pick the Item Capable of Modifying your Weapon's Power";
+      for (int i: Inventory)
+    damage = dmg_factor;
     break;
     }
   }
