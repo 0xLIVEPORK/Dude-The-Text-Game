@@ -2,71 +2,79 @@
 #include <cstdlib>
 #include <limits>
 
+class BattleArmor{
+    private: 
 
-class Inventory{
-  protected:
+    std::string material;
+    int defense;
+    int durability;
 
-  std::string inventory[10];
-};
+    public:
+
+    //Constructinos
+
+    BattleArmor(std::string m, int d1, int d2) 
+    : material(m), defense(d1), durability(d2 > 500 ? 500 : (d2 < 0 ? 0 : d2)) 
+    {}
+
+    BattleArmor(std::string m, int d1) : BattleArmor(m, d1, 100) {}
 
 
-class Weapon : Inventory{
-  private:
-
-  std::string name;
-  int damage;
+    BattleArmor(std::string m) : BattleArmor(m, 5, 100) {}
 
 
-  public:
-  // Have to put comments cause my monitor is shit and I need comments to not get confused by the dark balance of my monitor
-  // CONSTRUCTORS
-  Weapon(std::string n, int d) : name(n), damage(d) {}
+    BattleArmor() : BattleArmor("Cloth", 1, 50) {}
+    
 
-  Weapon(std::string n) : name(n), damage(0) {}
-  // CONSTRUCTORS
+    //Getterinos
 
-  void describeWeapon()
-  {
-    std::cout << "Weapon Name: <" << name << ">, Damage: <" << damage << "> \n";
-  }
-
-  // SETTERS
-  void setname()
-  {
-  std::string new_name;
-    while (true)
-    {
-    std::cout << "\nEnter a New Name for your " << name << ": ";
-      if(!(getline(std::cin, new_name)))
-      {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        continue; 
-      }
-
-    name = new_name;
-    break;
+    std::string getMaterial() {
+        return material;
     }
-  }
 
-  void setdmg()
-  {
-  inventory; //imma leave this cause Idk jack shit about inheritance
-  }
+    int getDefense() {
+        return defense;
+    }
+
+    int getDurability() {
+        return durability;
+    }
+
+    //Setterinos
+
+    int setDurability() {
+
+        int new_durability;
+        
+        while (true)
+        {
+            std::cout << "Set the New Value for Armor Durability: \n";
+
+            if(!(std::cin >> new_durability) || new_durability > 1000 || new_durability < 0)
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue;
+            }
+        durability = new_durability;
+        break;
+        }
+    
+    return durability;
+    }
+
+    //Methodinos
+
+    void describeBattleArmor(){
+        std::cout << "Material: " << material << ", Defense: " << defense << ", Durability: " << durability << "\n";
+    }
 };
 
-int main() {
+int main()
+{
+    BattleArmor Cuirass("Iron", 5, 800);
 
-  Weapon Morning_Star("Morning Star", 5);
-  Morning_Star.describeWeapon();
-  Morning_Star.setname();
-  Morning_Star.describeWeapon();
+    Cuirass.describeBattleArmor();
 
-  Weapon Halberd("Halberd");
-  Halberd.describeWeapon();
-
-
-
-  return EXIT_SUCCESS;
-
+    return EXIT_SUCCESS;
 }
