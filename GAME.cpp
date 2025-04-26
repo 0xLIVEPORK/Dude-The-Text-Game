@@ -1,73 +1,60 @@
+/*
+✍️ YOUR TASK
+
+👉 Create a new class called Armor.
+It should have:
+
+    Two private variables: std::string material; and int defense;
+
+    A constructor that sets both.
+
+    A getter for material.
+
+    A getter for defense.
+
+    A setter for material.
+
+    A setter for defense.
+
+    A describeArmor() method that prints the material and defense.
+*/
+
 #include <iostream>
-#include <cstdlib>
 #include <limits>
+#include <cstdlib>
 
+class Armor{
 
-class Inventory{
-  protected:
+    private:
 
-  std::string inventory[10];
-}
+    std::string material;
+    int defense;
 
+    public:
+    // Constructadinos
+    Armor(std::string m, int d) : material(m), defense(d)  {}
+    Armor(std::string m) : material(m), defense(5) {}
 
-class Weapon{
-  private:
-
-  std::string name;
-  int damage;
-
-
-  public:
-
-  Weapon(std::string n, int d) : name(n), damage(d) {}
-
-  void describeWeapon()
-  {
-    std::cout << "Weapon Name: <" << name << ">, Damage: <" << damage << "> \n";
-  }
-
-  void setname()
-  {
-  std::string new_name;
-    while (true)
-    {
-    std::cout << "\nEnter a New Name for your " << name << ": ";
-      if(!(getline(std::cin, new_name)))
-      {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        continue;
-      }
-
-    name = new_name;
-    break;
+    // Getterinos
+    void getMaterial() {
+        std::cout << material;
     }
-  }
 
-  void setdmg()
-  {
-  int dmg_factor;
-    while (true)
-    {
-    std::cout << "Pick the Item Capable of Modifying your Weapon's Power";
-      for (int i: Inventory)
-    damage = dmg_factor;
-    break;
+    void getDefense() {
+        std::cout << defense;
     }
-  }
+
+    // Setterinos
+
+    void setMaterial() {
+        std::cout << "Enter the New Material For Armor: \n";
+
+        while(true) {
+            
+        }
+    }
+
+    void setDefense() {
+        
+    }
 };
-
-int main() {
-
-  Weapon Morning_Star("Morning Star", 5);
-  Morning_Star.describeWeapon();
-  Morning_Star.setname();
-  Morning_Star.describeWeapon();
-
-  Weapon Halberd("Halberd", 20);
-  Halberd.describeWeapon();
-
-
-
-  return EXIT_SUCCESS;
-}
