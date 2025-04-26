@@ -47,14 +47,32 @@ class Armor{
     // Setterinos
 
     void setMaterial() {
-        std::cout << "Enter the New Material For Armor: \n";
 
-        while(true) {
-            
-        }
+        std::cout << "Enter the New Material For Armor: \n";
+        getline(std::cin, material);
     }
 
     void setDefense() {
+        
+        int new_defense;
+        
+        while (true)
+        {
+            std::cout << "Set the New Value for Armor Defense: \n";
+
+            if(!(std::cin >> new_defense) || new_defense > 1000 || new_defense < 0)
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue;
+            }
+        defense = new_defense;
+        break;
+        }
+        
+    }
+
+    void describeArmor() {
         
     }
 };
