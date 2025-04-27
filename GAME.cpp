@@ -70,6 +70,33 @@ class BattleArmor{
     }
 };
 
+class MagicArmor : BattleArmor{
+    private:
+    
+    int magicResistance;
+
+    public:
+
+    int returnMagicResistance() {
+        return magicResistance;
+    }
+
+    int setMagicResistance() {
+
+        while(true) {
+            if(!(std::cin >> magicResistance) )
+            {
+
+            }
+        }
+    }
+
+    void describeBattleArmor(){
+        std::cout << "Material: " << getMaterial() << ", Defense: " << getDefense() << ", Durability: " << getDurability() << "\n";
+    }
+
+};
+
 int main()
 {
     BattleArmor Cuirass("Iron", 5, 800);
