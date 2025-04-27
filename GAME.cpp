@@ -77,6 +77,10 @@ class MagicArmor : BattleArmor{
 
     public:
 
+    MagicArmor(std::string m, int d1, int d2, int mr) : BattleArmor(m, d1, d2) {
+        this->magicResistance = mr; //don't mind this I wanted to get the this -> muscle memory into me
+    }
+ 
     int returnMagicResistance() {
         return magicResistance;
     }
@@ -86,13 +90,19 @@ class MagicArmor : BattleArmor{
         while(true) {
             if(!(std::cin >> magicResistance) )
             {
-
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue;
             }
+        break;
         }
     }
 
     void describeBattleArmor(){
-        std::cout << "Material: " << getMaterial() << ", Defense: " << getDefense() << ", Durability: " << getDurability() << "\n";
+        std::cout << "Material: " << getMaterial() 
+        << ", Defense: " << getDefense() 
+        << ", Durability: " << getDurability() 
+        << ", Magic Resistance " << magicResistance << "\n";
     }
 
 };
@@ -100,6 +110,11 @@ class MagicArmor : BattleArmor{
 int main()
 {
     BattleArmor Cuirass("Iron", 5, 800);
+
+    //MagicArmor(std::string m, int d1, int d2, int mr) : BattleArmor(m, d1, d2) {}
+    MagicArmor Telvan("Test", 5, 5, 5);
+
+    Telvan.describeBattleArmor();
 
     Cuirass.describeBattleArmor();
 
