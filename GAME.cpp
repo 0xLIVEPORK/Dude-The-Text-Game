@@ -1,95 +1,35 @@
 #include <iostream>
 #include <cstdlib>
+#include <string>
 #include <limits>
 
-class BattleArmor{
-    private: 
-
-    std::string material;
-    int defense;
-    int durability;
-
-    public:
-
-    //Constructinos
-
-    BattleArmor(std::string m, int d1, int d2) 
-    : material(m), defense(d1), durability(d2 > 500 ? 500 : (d2 < 0 ? 0 : d2)) 
-    {}
-
-    BattleArmor(std::string m, int d1) : BattleArmor(m, d1, 100) {}
-
-
-    BattleArmor(std::string m) : BattleArmor(m, 5, 100) {}
-
-
-    BattleArmor() : BattleArmor("Cloth", 1, 50) {}
-    
-
-    //Getterinos
-
-    std::string getMaterial() {
-        return material;
-    }
-
-    int getDefense() {
-        return defense;
-    }
-
-    int getDurability() {
-        return durability;
-    }
-
-    //Setterinos
-
-    int setDurability() {
-
-        int new_durability;
-        
-        while (true)
-        {
-            std::cout << "Set the New Value for Armor Durability: \n";
-
-            if(!(std::cin >> new_durability) || new_durability > 1000 || new_durability < 0)
-            {
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue;
-            }
-        durability = new_durability;
-        break;
-        }
-    
-    return durability;
-    }
-
-    //Methodinos
-
-    void describeBattleArmor(){
-        std::cout << "Material: " << material << ", Defense: " << defense << ", Durability: " << durability << "\n";
-    }
-};
-
-class MagicArmor : BattleArmor{
+class Animal{
     private:
-    
-    int magicResistance;
+
+    std::string type;
+    int strength;
 
     public:
 
-    MagicArmor(std::string m, int d1, int d2, int mr) : BattleArmor(m, d1, d2) {
-        this->magicResistance = mr; //don't mind this I wanted to get the this -> muscle memory into me
-    }
- 
-    int returnMagicResistance() {
-        return magicResistance;
+    Animal() : type("Null") , strength(0) {}
+    Animal(std::string t, int s) : type(t) , strength(s) {}
+    
+
+    virtual void attack() {
+        std::cout << "base";
     }
 
-    int setMagicResistance() {
+    int getStrength() {
+        return strength;
+    }
 
-        while(true) {
-            if(!(std::cin >> magicResistance) )
+    void setStrength() {
+
+        std::cout << "Enter a Number of Strength: ";
+        while(true){
+            if(!(std::cin >> strength) || strength > 500 || strength < 0)
             {
+                std::cerr << "\nInvalid Input\nTry Again: ";
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 continue;
@@ -97,26 +37,54 @@ class MagicArmor : BattleArmor{
         break;
         }
     }
+    
+};
 
-    void describeBattleArmor(){
-        std::cout << "Material: " << getMaterial() 
-        << ", Defense: " << getDefense() 
-        << ", Durability: " << getDurability() 
-        << ", Magic Resistance " << magicResistance << "\n";
+class Wolf: public Animal{
+    private:
+
+    bool owned;
+
+    public:
+
+    Wolf() : Animal() {};
+    Wolf(std::string t, int s) : Animal(t, s) {}
+    Wolf(std::string t) : Animal(t, 30) {}
+
+    void attack() override{
+        std::cout << "\nThe Wolf Bites with " << getStrength() << " Force";
     }
 
 };
 
-int main()
-{
-    BattleArmor Cuirass("Iron", 5, 800);
+class Bear: public Animal{
+    private:
 
-    //MagicArmor(std::string m, int d1, int d2, int mr) : BattleArmor(m, d1, d2) {}
-    MagicArmor Telvan("Test", 5, 5, 5);
+    bool crazed;
 
-    Telvan.describeBattleArmor();
+    public:
 
-    Cuirass.describeBattleArmor();
+    Bear() : Animal() {}
+    Bear(std::string t, int s) : Animal(t, s) {}
+    Bear(std::string t) : Animal(t, 70) {}
 
-    return EXIT_SUCCESS;
+    void attack() override{
+        std::cout << "\nThe Bear Clawed with Overwhelming Ferocity: " << getStrength() << " DMG";
+    }
+};
+
+int main() {
+    Animal* test;
+
+    Wolf Dire("Direwolf");
+
+    test = &Dire;
+    test->attack();
+
+    Bear Grizzly("Grizzly");
+
+    test = &Grizzly;
+    test->attack();
+
+    return 0;
 }
