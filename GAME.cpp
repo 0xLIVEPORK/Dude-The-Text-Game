@@ -5,7 +5,7 @@
 
 
 
-class Player{
+class Base_NPC{
     private:
 
     std::string Name;
@@ -24,12 +24,9 @@ class Player{
     //Mutators
 
     void setName() {
-        while(true) {
-            if(!(std::cin >> Name)) {
-
-            }
-        }
-    }
+        std::cout << "Enter a Name for Your NPC"; //"Enter a Name for Your " >> type >> ": ";
+        std::getline(std::cin, Name);
+     }
     
 
 };
