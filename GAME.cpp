@@ -7,7 +7,7 @@
 
 class Base_NPC{
     private:
-
+ffs
     std::string Name;
     int Health;
 
