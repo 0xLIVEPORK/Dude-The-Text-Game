@@ -3,7 +3,7 @@
 #include <random>
 #include <limits>
 
-
+fff
 
 class Base_NPC{
     private:
