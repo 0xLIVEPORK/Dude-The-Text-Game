@@ -3,11 +3,11 @@
 #include <random>
 #include <limits>
 
-fff
+
 
 class Base_NPC{
     private:
-ffs
+
     std::string Name;
     int Health;
 
@@ -27,16 +27,26 @@ ffs
         bool Accepted;
         std::string temp;
 
-        std::cout << "\nEnter a Name for Your NPC"; //"Enter a Name for Your " >> type >> ": ";
+        std::cout << "\nEnter a Name for Your NPC: "; //"Enter a Name for Your " >> type >> ": ";
         std::getline(std::cin, Name);
         std::cin.clear();
 
-        std::cout << "\nDo you Accept The Name: yes(Y) or no(N) ";
-        
-        if(!(std::cin >> temp)|| temp != "Y" || temp !=) {
+        while(true) {
 
+            std::cout << "\nDo you Accept The Name: yes(Y) or no(N) ";
+                if(!(std::cin >> Name)) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue;
+                }
+        break;
         }
-
+        
+    if(temp == "Y") {
+        std::cout << "Your New Name is Set as" << Name;
+    } else{
+        setName();
+    }
      }
     
 
@@ -45,5 +55,7 @@ ffs
 
 
 int main() {
+    Base_NPC Test;
 
+    Test.setName();
 }
