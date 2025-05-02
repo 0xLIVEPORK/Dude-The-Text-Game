@@ -40,7 +40,7 @@ class Base_NPC{
                 continue;
                 }
         break;
-        }
+        }s
         
     if(temp == "Y") {
         std::cout << "Your New Name is Set as" << Name;
