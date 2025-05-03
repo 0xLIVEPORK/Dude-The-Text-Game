@@ -203,3 +203,90 @@ int main() {
     game.start();
     return 0;
 }
+
+#include <iostream>
+#include <termios.h>
+#include <unistd.h>
+#include <cstdlib>
+using namespace std;
+
+// Terminal control functions
+void enableRawMode() {
+    termios term;
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag &= ~(ICANON | ECHO);  // Disable line buffering and echo
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+}
+
+void disableRawMode() {
+    termios term;
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag |= ICANON | ECHO;  // Restore default
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+}
+
+// Clear screen using ANSI code (better than system("clear"))
+void clearScreen() {
+    cout << "\033[2J\033[1;1H";
+}
+
+// Draw menu with current selection
+void drawMenu(int selected, const string options[], int size) {
+    clearScreen();
+    cout << "+====== RUSSIAN ROULETTE ======+\n";
+    for (int i = 0; i < size; ++i) {
+        if (i == selected)
+            cout << " > \033[1;32m" << options[i] << "\033[0m\n";  // Highlight green
+        else
+            cout << "   " << options[i] << "\n";
+    }
+    cout << "+==============================+\n";
+    cout << "Use ↑ ↓ to navigate, Enter to select\n";
+}
+
+int main() {
+    const int menuSize = 3;
+    string options[menuSize] = {
+        "Pull Trigger",
+        "Use Item",
+        "Quit"
+    };
+
+    int selected = 0;
+
+    enableRawMode();
+
+    while (true) {
+        drawMenu(selected, options, menuSize);
+
+        char c = cin.get();
+        if (c == '\033') { // Escape sequence
+            cin.get(); // skip [
+            char dir = cin.get();
+            if (dir == 'A') selected = (selected + menuSize - 1) % menuSize; // Up
+            if (dir == 'B') selected = (selected + 1) % menuSize;            // Down
+        } else if (c == '\n') {
+            break; // Enter key
+        }
+    }
+
+    disableRawMode();
+
+    clearScreen();
+    cout << "You chose: " << options[selected] << "\n";
+
+    // Logic based on choice
+    if (selected == 0) {
+        cout << "💥 Pulling the trigger...\n";
+        // Insert trigger logic here
+    } else if (selected == 1) {
+        cout << "🎒 Using an item...\n";
+        // Insert item logic here
+    } else if (selected == 2) {
+        cout << "👋 Quitting the game...\n";
+        return 0;
+    }
+
+    return 0;
+}
+
