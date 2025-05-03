@@ -1,61 +1,48 @@
 #include <iostream>
 #include <cstdlib>
-#include <random>
 #include <limits>
+#include <ctime>
 
-
-
-class Base_NPC{
-    private:
-
-    std::string Name;
-    int Health;
-
-    public:
-
-    std::string getName() {
-        return Name;
-    }
-
-    int getHealth() {
-        return Health;
-    }
-
-    //Mutators
-
-    void setName() {
-        bool Accepted;
-        std::string temp;
-
-        std::cout << "\nEnter a Name for Your NPC: "; //"Enter a Name for Your " >> type >> ": ";
-        std::getline(std::cin, Name);
-        std::cin.clear();
-
-        while(true) {
-
-            std::cout << "\nDo you Accept The Name: yes(Y) or no(N) ";
-                if(!(std::cin >> Name)) {
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue;
-                }
-        break;
-        }s
-        
-    if(temp == "Y") {
-        std::cout << "Your New Name is Set as" << Name;
-    } else{
-        setName();
-    }
-     }
-    
+class Player{
 
 };
 
+class GambleYourLife: public Player{
+    private:
+
+    std::string items[19] = {
+        "Second Chance Token",       // Survive a fatal shot once
+        "Barrel Jammer",             // Nullifies next lethal shot
+        "Ghost Round",               // Makes one bullet a dud
+        ""
+        "Mirror of Fate",            // Swap outcome with another player
+        "Time Rewinder",             // Rewind last move
+        "Loaded Die",                // Increase odds in your favor
+        "Smoker's Distraction",      // Skip your turn
+        "Unseen Hand",               // Randomly affect another player's chance
+        "Adrenaline Surge",          // Allows You to Use 2 More Items at the cost of having 1 Less Health
+        "Fake Bullet",               // Insert harmless round
+        "Dealer's Glove",            // Peek at next chamber
+        "Silencer",                  // Increased Headshot Percentage
+        "Misfire Charm",             // 50% chance to nullify shot
+        "Cursed Coin",               // Force Roll on One's Life TWICE!
+        "Hollow Round",              // Turns next bullet into a warning shot
+        "Shadow Cloak",              // Become untargetable for one round
+        "Vengeful Spirit",           // Take down the opponent's health by 1 if Hurt
+        "Twist of Fate",             // Shuffle all chambers
+    };
+};
+
+class GameLoop: GambleYourLife{
+
+   
+    
+
+    public:
 
 
-int main() {
-    Base_NPC Test;
+};
 
-    Test.setName();
+int main() {   
+
 }
