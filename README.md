@@ -1,4 +1,4 @@
-# Gamble Your Life - C++ Game
+# Terminal Roulette
 
 ## Introduction
 
