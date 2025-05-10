@@ -6,16 +6,7 @@
 
 class Player {
 protected:
-    int health;
-    std::vector<std::string> inventory;
-    bool secondChance = false;
-    bool shadowCloak = false;
-    bool barrelJammer = false;
-    bool misfireCharm = false;
-
-public:
-    Player() : health(1) {}
-
+    int health; ra
     void takeDamage() {
         if (shadowCloak) {
             std::cout << "Shadow Cloak activated! You evade the shot.\n";
