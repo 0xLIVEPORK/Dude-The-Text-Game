@@ -1,4 +1,4 @@
-#include <iostream>
+ff#include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <string>
@@ -8,7 +8,7 @@ class Player {
 protected:
     int health; ra
     void takeDamage() {
-        if (shadowCloak) {
+        if (shadowCloak) {ff
             std::cout << "Shadow Cloak activated! You evade the shot.\n";
             shadowCloak = false;
             return;
